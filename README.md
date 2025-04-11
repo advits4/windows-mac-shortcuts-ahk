@@ -2,63 +2,92 @@
 
 ## Purpose
 
-The primary purpose of this AutoHotkey (AHK) script is to help users accustomed to Mac keyboard shortcuts transition seamlessly when using a Windows laptop. It specifically remaps common Mac shortcuts involving the Command key (⌘) to equivalent Windows shortcuts using the Windows key (⊞), enhancing productivity and minimizing disruption in workflow.
+This AutoHotkey (AHK) **v2** script transforms a Windows environment to feel more like macOS, making it easier for Mac users to maintain their usual keyboard shortcuts and workflow. It remaps the Windows key (⊞) to act similarly to the Mac Command (⌘) key in many situations and includes additional tweaks like mimicking Spotlight and adjusting the Run command.
 
-## Why I Created This
+## What's New
 
-As a Mac user, I'm habituated to certain shortcuts involving the Command key for copy (⌘+C), paste (⌘+V), save (⌘+S), app-switching (⌘+Tab), undo/redo (⌘+Z/⌘+Shift+Z), and more. When using a Windows laptop, the absence of these shortcuts significantly impacted my productivity and workflow. To solve this issue and achieve an efficient working environment, I developed this script to closely replicate Mac-like behavior on Windows using AutoHotkey (AHK v2.0).
+1. **Win+R → Ctrl+R**  
+   - Remapped to refresh (like `⌘+R` on Mac), commonly used in browsers and apps.
+2. **Win+Space → Start Menu**  
+   - Pressing **Win+Space** momentarily triggers the Start Menu – a placeholder that can be further customized to mimic macOS Spotlight if you install a third-party launcher.
+3. **Win+Space+R → Run Dialog**  
+   - Since **Win+R** is now refresh, you can use **Win+Space+R** to open the classic Windows “Run” dialog.
+4. **Win+Ctrl+R → Reload Script (Optional)**  
+   - A quick way to reload this AHK script if you tweak it.
 
 ## How It Works
 
-This script remaps the Windows key to perform actions typically triggered by the Command key on a Mac. It uses AutoHotkey scripting to redirect Windows key combinations to standard Windows shortcuts (usually involving the Ctrl or Alt keys).
+- **Win Key (⊞)** is used similarly to **Command (⌘)** on Mac:
+  - `Win+C` → `Ctrl+C` (Copy)
+  - `Win+V` → `Ctrl+V` (Paste)
+  - `Win+X` → `Ctrl+X` (Cut)
+  - `Win+A` → `Ctrl+A` (Select All)
+  - `Win+Z` → `Ctrl+Z` (Undo)
+  - `Win+Shift+Z` → `Ctrl+Y` (Redo)
+  - `Win+S` → `Ctrl+S` (Save)
+  - `Win+F` → `Ctrl+F` (Find/Search)
+- **Win+R** → `Ctrl+R` (Refresh), aligning with macOS `⌘+R`.
+- **Win+Space** → Simulates pressing the Windows key briefly:
+  - **On release**, it pops open the Start Menu.
+  - You can re-map this to open a Spotlight-like tool (e.g., Wox, Keypirinha) if you wish.
+- **Win+Space+R** → The actual `Win+R` → Windows “Run” dialog.
+- **Win+Tab** → `Alt+Tab` style app switching (hold Win to keep cycling).
+- **Other helpful shortcuts**:
+  - `Win+Q` → `Alt+F4` (Close App/Window)
+  - `Win+W` → `Ctrl+W` (Close Tab)
+  - `Win+T` → `Ctrl+T` (New Tab)
+  - (Optional) `Win+Ctrl+R` → Reload this AHK script.
 
-### Shortcuts Implemented
+## Shortcut Reference
 
-| Mac Shortcut | Windows Equivalent (with this script) |
-|--------------|---------------------------------------|
-| `⌘+C`        | `Win+C` → Copy (`Ctrl+C`)             |
-| `⌘+V`        | `Win+V` → Paste (`Ctrl+V`)            |
-| `⌘+X`        | `Win+X` → Cut (`Ctrl+X`)              |
-| `⌘+A`        | `Win+A` → Select All (`Ctrl+A`)       |
-| `⌘+Z`        | `Win+Z` → Undo (`Ctrl+Z`)             |
-| `⌘+Shift+Z`  | `Win+Shift+Z` → Redo (`Ctrl+Y`)       |
-| `⌘+S`        | `Win+S` → Save (`Ctrl+S`)             |
-| `⌘+Tab`      | `Win+Tab` → App Switcher (`Alt+Tab`)  |
-| `⌘+Q`        | `Win+Q` → Close App (`Alt+F4`)        |
-| `⌘+W`        | `Win+W` → Close Tab (`Ctrl+W`)        |
-| `⌘+T`        | `Win+T` → New Tab (`Ctrl+T`)          |
+| Mac Shortcut     | Windows Shortcut (AHK)  | Action                                                             |
+|------------------|-------------------------|--------------------------------------------------------------------|
+| `⌘+C`            | `Win+C` → `Ctrl+C`      | Copy                                                               |
+| `⌘+V`            | `Win+V` → `Ctrl+V`      | Paste                                                              |
+| `⌘+X`            | `Win+X` → `Ctrl+X`      | Cut                                                                |
+| `⌘+A`            | `Win+A` → `Ctrl+A`      | Select All                                                         |
+| `⌘+Z`            | `Win+Z` → `Ctrl+Z`      | Undo                                                               |
+| `⌘+Shift+Z`      | `Win+Shift+Z` → `Ctrl+Y`| Redo                                                               |
+| `⌘+S`            | `Win+S` → `Ctrl+S`      | Save                                                               |
+| `⌘+F`            | `Win+F` → `Ctrl+F`      | Find/Search                                                        |
+| `⌘+Q`            | `Win+Q` → `Alt+F4`      | Quit App                                                           |
+| `⌘+W`            | `Win+W` → `Ctrl+W`      | Close Tab                                                          |
+| `⌘+T`            | `Win+T` → `Ctrl+T`      | New Tab                                                            |
+| `⌘+Tab`          | `Win+Tab` → `Alt+Tab`   | App Switcher                                                       |
+| `⌘+R (Refresh)`  | `Win+R` → `Ctrl+R`      | Refresh (browser, app, etc.)                                       |
+| *(Spotlight)*    | `Win+Space` → *Windows key* | Opens Start menu on release (placeholder for spotlight)       |
+| *(n/a on Mac)*   | `Win+Space+R` → `Win+R` | Windows “Run” dialog (since `Win+R` was replaced by `Ctrl+R`)      |
+| *(n/a on Mac)*   | `Win+Ctrl+R` → Reload   | Reload the AHK script                                             |
 
-### Technical Details
+## Installation & Usage
 
-- **AutoHotkey Version:** v2.0  
-- **File Extension:** `.ahk`
+1. **Install AutoHotkey v2**  
+   - [Download AHK v2](https://www.autohotkey.com/). The script uses v2 syntax and won’t work on v1.
 
-## Usage Instructions
+2. **Create and Run the Script**  
+   - Copy the script into a file, e.g., `win-to-mac-shortcuts.ahk`.
+   - Double-click it to launch.
 
-1. **Install AutoHotkey v2.0:**
-   - [Download AHK v2.0](https://www.autohotkey.com/)
+3. **Auto-Start at Login (Optional)**  
+   - Press `Win+R` (or `Win+Space+R` if the script is running) to open Run.
+   - Type `shell:startup` and press Enter.
+   - Drop your `.ahk` file into this folder so it runs on every boot.
 
-2. **Create and Run the Script:**
-   - Paste the provided script code into a text file.
-   - Save the file with an `.ahk` extension, e.g., `win-to-mac-shortcuts.ahk`.
-   - Double-click to run the script.
+4. **Reloading the Script**  
+   - If you tweak the script, press `Win+Ctrl+R` to reload immediately.
 
-3. **Auto-start Script (optional):**
-   - Press `Win + R`, type `shell:startup`, and hit Enter.
-   - Paste the `.ahk` script into this folder for automatic startup at boot.
+## Notes & Troubleshooting
 
-## Future Improvements
+- **Spotlight Alternative**:  
+  You can replace the `Win+Space` segment with a custom app launcher for a closer Spotlight-like experience. Just change the code that opens the Start Menu to launch your favorite search utility (e.g., Wox, Keypirinha, Flow Launcher).
 
-- Additional customization options.
-- Integrating further Mac-style gestures or shortcuts.
+- **Conflicting Hotkeys**:  
+  Certain applications or IT policies might override these hotkeys. You may need to run AHK with Administrator privileges or modify specific mappings if they conflict with other programs.
 
-## Notes
-
-- Ensure that these shortcuts do not conflict with Windows-specific hotkeys or software you regularly use.
-- Adjustments can be made by editing the `.ahk` file and reloading it.
+- **Further Customizations**:  
+  Edit the `.ahk` file freely. If you change shortcuts, reload the script to apply updates immediately.
 
 ## Author
 
-Advit Suvarna
-
----
+**Advit Suvarna**  
+Created to help Mac users quickly adapt on Windows systems by preserving familiar muscle memory and shortcuts.
